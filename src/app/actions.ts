@@ -1,5 +1,6 @@
 "use server";
 
+import { redirect } from 'next/navigation'
 import { z } from "zod";
 
 export async function checkPostcode(prevState: {
@@ -37,7 +38,5 @@ export async function checkPostcode(prevState: {
 
   console.log(JSON.stringify(data, null, 4));
 
-  return { 
-    message: "SUCCESS"
-  };
+  redirect("/success");
 }
