@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
+import { Logo } from "../components/icons/logo";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -31,7 +32,15 @@ export default function RootLayout({
       <body
         className={`${dmSans.variable} ${montserrat.variable} font-sans antialiased`}
       >
-        {children}
+            <div className="mx-6">
+              <header className="flex justify-center py-8">
+                <Logo />
+              </header>
+              <main className="max-w-xl mx-auto my-4">
+                <h1 className="text-3xl text-center font-bold mt-4 mb-8">Sam Vargas: Tech Test</h1>
+                {children}
+              </main>
+            </div>
       </body>
     </html>
   );
