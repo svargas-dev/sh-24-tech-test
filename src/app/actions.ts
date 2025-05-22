@@ -25,18 +25,28 @@ export async function checkPostcode(prevState: {
     };
   }
 
-  console.log(JSON.stringify(parse, null, 4))
+  if (allowlist.includes(parse.data.postcode)) {
+    redirect("/success");
+  }
 
   const response = await fetch(`http://postcodes.io/postcodes/${parse.data.postcode}`);
   const data = await response.json();
+
   if (!data.result) {
-    // TODO: add exceptions for some postcodes in allowlist
-    return { 
+    return {
       message: "Your postcode must be a valid UK postcode."
     };
   }
 
-  console.log(JSON.stringify(data, null, 4));
+  if (lsoaRegex.test(data.result.lsoa)) {
+    redirect("/success");
+  }
 
-  redirect("/success");
+  redirect("/out-of-service-area");
 }
+
+const lsoaRegex = /^Lambeth|Southwark/;
+const allowlist = [
+  "SH241AA",
+  "SH241AB",
+];
