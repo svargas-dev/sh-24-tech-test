@@ -1,0 +1,13 @@
+.letter {
+  fill: #002d41;
+}
+
+.colon {
+  fill: #71dcdf;
+}
+
+@media (prefers-color-scheme: dark) {
+  .letter {
+    fill: var(--color-blue-50);
+  }
+}
