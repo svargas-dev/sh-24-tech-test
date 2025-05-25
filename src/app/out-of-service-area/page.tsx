@@ -1,4 +1,10 @@
-import { BackButton } from "@/components/ui/back-button"
+import type { Metadata } from "next";
+import { BackButton } from "@/components/ui/back-button";
+
+export const metadata: Metadata = {
+  title: "Sam Vargas | Out of service area",
+  description: "Sam Vargas tech test for SH:24 for hiring a new software engineer in May/June 2025",
+};
 
 export default function OutOfServiceArea() {
   return (

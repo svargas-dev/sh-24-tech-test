@@ -18,7 +18,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Sam Vargas - SH:24 Tech Test - May 2025",
+  title: "Sam Vargas | SH:24 Tech Test - May 2025",
   description: "Tech test for SH:24 for hiring a new software engineer in May/June 2025",
 };
 
