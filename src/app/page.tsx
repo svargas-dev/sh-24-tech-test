@@ -5,7 +5,7 @@ import { checkPostcode } from "./actions";
 import { Input } from "@/components/ui/input";
 
 export default function Home() {
-  const [state, formAction] = useActionState(checkPostcode, initialState);
+  const [state, formAction, isPending] = useActionState(checkPostcode, initialState);
 
   return (
     <>
@@ -20,7 +20,7 @@ export default function Home() {
         <span className="flex flex-col gap-2 my-4">
           <label htmlFor="postcode" className="text-md font-semibold">Postcode</label>
           {state.message && (
-            <output name="status" htmlFor="postcode">
+            <output name="status" htmlFor="postcode" aria-busy={isPending}>
               <span className="text-red-500">⚠&nbsp;</span>
               <span>{state.message}</span>
             </output>
@@ -36,7 +36,7 @@ export default function Home() {
           <p className="text-md dark:text-gray-900">We cannot deliver to pick-up locations like InPost or OOHPod lockers or Post Offices.</p>
         </div>
         <hr className="my-3" />
-        <button type="submit" className="w-full py-2 px-4 rounded-full bg-blue-500 text-white">Continue →</button>
+        <button type="submit" className="w-full py-2 px-4 rounded-full bg-blue-500 text-white hover:cursor-pointer aria-disabled:cursor-not-allowed aria-disabled:opacity-50" aria-disabled={isPending}>Continue →</button>
       </form>
     </>
   );
