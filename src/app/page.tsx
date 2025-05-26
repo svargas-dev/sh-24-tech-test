@@ -17,16 +17,21 @@ export default function Home() {
       </p>
 
       <form action={formAction} className="flex flex-col gap-4 mb-8">
-        <span className="flex flex-col gap-2 my-4">
+        <div className="flex flex-col gap-2 my-4">
           <label htmlFor="postcode" className="text-md font-semibold">Postcode</label>
-          {state.message && (
-            <output name="status" htmlFor="postcode" aria-busy={isPending}>
+          {state.message && !isPending && (
+            <output name="status" htmlFor="postcode">
               <span className="text-red-500">⚠&nbsp;</span>
               <span>{state.message}</span>
             </output>
           )}
+          {state.message && isPending && (
+            <output name="status" htmlFor="postcode">
+              <span className="sr-only">Loading...</span>
+            </output>
+          )}
           <Input type="text" id="postcode" name="postcode" autoComplete="shipping postal-code" />
-        </span>
+        </div>
         <p>We&apos;ll also use your postcode to find your delivery address.</p>
 
         <div className="flex gap-4 py-6 px-8 mx-auto rounded-3xl bg-gray-300 mb-8">

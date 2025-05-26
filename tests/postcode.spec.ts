@@ -96,3 +96,17 @@ test('should show error when postcode is invalid, then show success page when a 
 
   await expect(page).toHaveURL('/success');
 });
+
+
+test('should show error when no postcode is entered, then show invalid postcode error', async ({ page }) => {
+  await page.goto('/');
+
+  await page.getByRole('button', { name: 'Continue' }).click();
+
+  await expect(page.getByRole('status')).toHaveText(/Postcode is required/);
+
+  await page.getByRole('textbox', { name: 'Postcode' }).fill('nonsense');
+  await page.getByRole('button', { name: 'Continue' }).click();
+
+  await expect(page.getByRole('status')).toHaveText(/Your postcode must be a valid UK postcode./);
+});
