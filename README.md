@@ -1,8 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sam Vargas Tech Test
+
+## Description
+
+This is a tech test for the role of Software Engineer at SH24.
+
+## Brief
+
+[See full brief here](https://sh24.notion.site/SH-24-Software-Engineer-Tech-Test-8923d2183d5d413c95d77cd7eb823c29)
+
+## Tech Stack
+
+- Next.js
+- TypeScript
+- Zod
+- Tailwind CSS
+- Playwright
+
+While SH:24 uses Ruby on Rails, in the first round of interviews it was discussed there has been a move towards Next.js and TypeScript for client facing applications. It is accessible and responsive, loosely styled on SH:24's existing website while sticking to Tailwind default theme and adds dark mode support, as well as reduced motion support. It leverages Tailwind CSS for styling and Playwright for end-to-end testing.
+
+This solution leverages the latest features of Next.js 15 and React 19, including the new App Router, Server Components and Server Actions, as well as Zod for form validation on the server.
 
 ## Getting Started
 
-First, run the development server:
+Choose your runtime environment:
+
+- [Node.js](https://nodejs.org/en/download/)
+- [Bun](https://bun.sh/)
+- [Deno](https://deno.com/)
+
+This project was developed using Node v22.15.1 with npm 10.9.2 on Fedora Linux 41 Workstation and tested using Playwright and manually in Chromium browsers, Firefox and a WebKit-based browser.
+
+### Installation
+
+First, install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+# or
+deno install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
@@ -12,25 +56,52 @@ yarn dev
 pnpm dev
 # or
 bun dev
+# or
+deno task dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### End-to-end testing
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Ensure development server is up, then run the end-to-end tests:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run test:e2e
+# or
+yarn test:e2e
+# or
+pnpm test:e2e
+# or
+bun test:e2e
+# or
+deno task test:e2e
+```
 
-## Learn More
+### Build and Run
 
-To learn more about Next.js, take a look at the following resources:
+Build the application:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+# or
+yarn build
+# or
+pnpm build
+# or
+bun build
+# or
+deno task build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Run the production server:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run start
+# or
+yarn start
+# or
+pnpm start
+# or
+bun start
+# or
+deno task start
+```
