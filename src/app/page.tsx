@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 import { checkPostcode } from "./actions";
-import { Input } from "@/components/ui/input";
+import { TextInput } from "@/components/ui/text-input";
 
 export default function Home() {
   const [state, formAction, isPending] = useActionState(checkPostcode, initialState);
@@ -30,7 +30,7 @@ export default function Home() {
               <span className="sr-only">Loading...</span>
             </output>
           )}
-          <Input type="text" id="postcode" name="postcode" autoComplete="shipping postal-code" />
+          <TextInput type="text" id="postcode" name="postcode" autoComplete="shipping postal-code" hasError={!!state.message} />
         </div>
         <p>We&apos;ll also use your postcode to find your delivery address.</p>
 
