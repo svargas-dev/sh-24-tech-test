@@ -29,7 +29,7 @@ test('should disable button when postcode is valid & submitting form', async ({ 
   await page.getByRole('textbox', { name: 'Postcode' }).fill('SH241AA');
   await page.getByRole('button', { name: 'Continue' }).click();
 
-  await expect(page.getByRole('button', { name: 'Continue' })).toBeDisabled();
+  await expect(page.getByRole('button', { name: /Continue/ })).toBeDisabled();
 });
 
 test('should redirect to success page when postcode is valid (allow list)', async ({ page }) => {

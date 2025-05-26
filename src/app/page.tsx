@@ -4,6 +4,7 @@ import { useActionState } from "react";
 import { checkPostcode } from "./actions";
 import { TextInput } from "@/components/ui/text-input";
 import { WarningIcon } from "@/components/icons/warning";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const [state, formAction, isPending] = useActionState(checkPostcode, initialState);
@@ -28,11 +29,6 @@ export default function Home() {
               </output>
             </div>
           )}
-          {state.message && isPending && (
-            <output name="status">
-              <span className="sr-only">Loading...</span>
-            </output>
-          )}
           <TextInput type="text" id="postcode" name="postcode" autoComplete="shipping postal-code" hasError={!!state.message} />
         </div>
         <p>We&apos;ll also use your postcode to find your delivery address.</p>
@@ -45,7 +41,7 @@ export default function Home() {
           <p className="text-md dark:text-gray-900">We cannot deliver to pick-up locations like InPost or OOHPod lockers or Post Offices.</p>
         </div>
         <hr className="my-3" />
-        <button type="submit" className="w-full py-2 px-4 rounded-full bg-blue-500 text-white hover:cursor-pointer aria-disabled:cursor-not-allowed aria-disabled:opacity-50" aria-disabled={isPending}>Continue →</button>
+        <Button isLoading={isPending} className="ml-auto"/>
       </form>
     </>
   );
