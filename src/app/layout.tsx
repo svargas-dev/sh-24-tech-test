@@ -1,20 +1,27 @@
 import type { Metadata } from "next";
-import { DM_Sans, Montserrat } from "next/font/google";
-import "./globals.css";
+import { DM_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import { Logo } from "../components/icons/logo";
+import "./globals.css";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
   display: "swap",
   preload: true,
-  variable: "--font-giest-sans",
+  variable: "--font-dm-sans",
 });
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
+const ambit = localFont({
+  src: [
+    {
+      path: "../assets/fonts/ambit/ambit-500.otf",
+      weight: "500",
+      style: "normal",
+    },
+  ],
   display: "swap",
   preload: true,
-  variable: "--font-montserrat",
+  variable: "--font-ambit",
 });
 
 export const metadata: Metadata = {
@@ -30,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${dmSans.variable} ${montserrat.variable} font-sans antialiased`}
+        className={`${dmSans.variable} ${ambit.variable} font-dm-sans antialiased`}
       >
             <div className="mx-6">
               <header className="flex justify-center py-8">
