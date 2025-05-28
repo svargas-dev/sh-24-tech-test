@@ -1,7 +1,7 @@
-import { type InputHTMLAttributes } from 'react';
+import type { InputHTMLAttributes, Ref } from 'react';
 
 interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  ref?: React.RefObject<HTMLInputElement>;
+  ref?: Ref<HTMLInputElement>;
   hasError?: boolean;
 }
 
@@ -16,6 +16,7 @@ export function TextInput({ ref, hasError, ...props }: TextInputProps) {
         motion-reduce:transition-none transition-all duration-100
       `}
       {...props}
+      aria-invalid={hasError}
       ref={ref}
     />
     {/* Using scale is more performant than changing the border width & has smoother transition using compositing */}
@@ -27,4 +28,3 @@ export function TextInput({ ref, hasError, ...props }: TextInputProps) {
   </div>
   );
 }
-
