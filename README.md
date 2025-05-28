@@ -20,9 +20,9 @@ While SH:24 primarily uses Ruby on Rails, in the first round of interviews it wa
 
 This solution leverages the latest features of Next.js 15 and React 19, including the App Router, React Server Components and Server Actions, as well as Zod for form validation on the server. As such, it supports progressive enhancement and remains functional where JavaScript is not available.
 
-### Note
+### Notes
 
-In a real-world application, you may want to use client-side form validation e.g., with React Hook Form, in addition to the server-side validation, for a better user experience and to reduce the number of requests to the server.
+In a real-world application, you may want to use client-side form validation e.g., with React Hook Form, in addition to the server-side validation, for a better user experience and to reduce the number of requests to the server. See this additional [PR](https://github.com/svargas-dev/sh-24-tech-test/pull/1) for this change.
 
 Additionally, you would want more developed UI components with variants, states and animations, with consistent APIs and theming as well as a component library managed with a tool like Storybook.
 
